@@ -1,0 +1,32 @@
+.list-user-container {
+    .list-user-content {
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            border-collapse: collapse;
+            width: 100%;
+
+            td, th {
+                border: 1px solid #ffffff;
+                padding: 8px;
+            }
+
+            tr {
+                background-color: #535353;
+            }
+
+            tr:hover {
+                background-color: #7a7a7a;
+                cursor: pointer;
+            }
+
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #076ae4;
+                color: white;
+            }
+        }
+    }
+}

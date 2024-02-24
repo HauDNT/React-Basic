@@ -1,26 +1,62 @@
-// D:\Workspace\React-Basic\Process
-import logo from './logo.svg';
-import './App.scss';
-import MyComponent from "./Example/MyComponent";
+import logo from "./logo.svg";
+import "./App.scss";
+import Nav from "./Nav/Nav";
+import MyComponent from './Example/MyComponent';
+import ListTodo from "./Todos/ListTodo";
+import Home from "./Example/Home";
+import ListUser from "./Users/ListUser";
+import DetailUser from "./Users/DetailUser";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-/*
- * React có 2 loại component: class component và function component (có thể được định nghĩa bằng function hoặc arrow)
- * Component của React có sự đặc biệt là dùng cú pháp JSX (Một function của JS trả về khối HTML).
- */
+// Import React Router Dom
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   // const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        {/* Component tương tự như một thẻ HTML */}
-        <MyComponent>
-
-        </MyComponent>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+          <Switch>
+            <Route path="/" exact>
+              <Home/>
+            </Route>
+            <Route path="/todos">
+              <ListTodo/>
+            </Route>
+            <Route path="/about">
+              <MyComponent/>
+            </Route>
+            <Route path="/user" exact>
+              <ListUser/>
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser/>
+            </Route>
+          </Switch>
+        </header>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 
