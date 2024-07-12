@@ -15,66 +15,25 @@ function Content() {
     // 1. Callback luôn được gọi sau khi component mounted
     // 2. Cleanup function luôn được gọi trước khi component unmounted
 
-    const [title, setTitle] = useState("");
-    const [type, setType] = useState("posts");
-    const [data, setData] = useState([]);
-    const [showGoToTop, setShowGoToTop] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/${type}`)
-        .then((res) => res.json())
-        .then((newData) => {
-            setData(newData);
-        });
-    }, [type]);
-
-    useEffect(() => {
-        const handleScroll = () => {
-        console.log(window.scrollY);
-
-        if (window.scrollY) {
-            setShowGoToTop(true);
-        } else {
-            setShowGoToTop(false);
-        }
+        const handleResize = () => {
+            setWidth(window.innerWidth);
         };
 
-        window.addEventListener("scroll", handleScroll);
-        
-        // Clenup function (dọn dẹp bộ nhớ)
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup function:
         return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
+
 
     return (
         <>
-            {tabs.map((tab) => (
-                <button onClick={() => setType(tab)} key={tab}>
-                {tab}
-                </button>
-            ))}
-
-            <input value={title} onChange={(e) => setTitle(e.target.value)} />
-
-            <ul>
-                {data &&
-                data.map((item) => <li key={item.id}>{item.title ?? item.name}</li>)}
-            </ul>
-
-            {
-                showGoToTop && (
-                    <button
-                        style={{
-                            position: 'fixed',
-                            right: 20,
-                            bottom: 20
-                        }}
-                    >
-                        Go to top
-                    </button>
-                )
-            }
+            <h1>{width}</h1>
         </>
     );
 }
