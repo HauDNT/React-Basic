@@ -1,15 +1,14 @@
-import { memo } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
 
-function Content({onIncrease}) {
-    console.log('Re-render');
-    
+function Content() {
+    const context = useContext(ThemeContext);
 
     return (
-        <>
-            <h2>Hellow</h2>
-            <button onClick={onIncrease}>Click me!</button>
-        </>
-    )
+        <h1 className={context.theme}>
+            Content
+        </h1>
+    );
 }
 
-export default memo(Content);
+export default Content;
