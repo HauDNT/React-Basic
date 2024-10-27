@@ -7,7 +7,7 @@ class ListTodo extends React.Component {
     state = {
         listTodos: [
             {id: 'todo1', title: 'Doing homework'},
-            {id: 'todo2', title: 'Making video'},
+            {id: 'todo2', title: 'Making videos'},
             {id: 'todo3', title: 'Fixing bugs'},
             {id: 'todo4', title: 'Playing games'},
         ],

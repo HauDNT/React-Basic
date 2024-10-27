@@ -1,17 +1,28 @@
-import { useContext } from "react";
-import Content from "./Content";
-import { ThemeContext } from "./ThemeContext";
+import {useEffect, useRef} from 'react';
+import Videos from "./Videos";
 import './App.css';
 
-
 function App() {
-    const context = useContext(ThemeContext);
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        console.log(videoRef.current);
+    }, []);
+
+    const handlePlay = () => {
+        videoRef.current.play();
+    };
+
+    const handlePause = () => {
+        videoRef.current.pause();
+    };
 
     return (
-        <>
-            <button onClick={context.toggleTheme} style={{padding: 10}}>Toggle theme</button>
-            <Content/>
-        </>
+        <div>
+            <Videos ref={videoRef}/>
+            <button onClick={handlePlay}>Play</button>
+            <button onClick={handlePause}>Pause</button>
+        </div>
     )
 }
 
