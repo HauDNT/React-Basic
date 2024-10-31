@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from './Button.module.css'
+import styles from './Button.module.scss'
 
 function Button({ primary, danger }) {
     const classes = clsx(styles.myButton, {
