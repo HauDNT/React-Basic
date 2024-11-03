@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner, faCircleXmark, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faCircleXmark, faSearch, faSignIn } from '@fortawesome/free-solid-svg-icons'
 import Tippy from '@tippyjs/react/headless'
-
+// ---------------------------------------------------------------
+import Button from '../../../Button'
 import { Wrapper as PopperWrapper } from '../../../Popper'
 import styles from './Header.module.scss'
 import images from '../../../../assets/images'
@@ -33,9 +34,9 @@ function Header() {
                                 <h4 className={cx('search-title')}>
                                     Accounts
                                 </h4>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
                             </PopperWrapper>
                         </div>
                     )}
@@ -56,7 +57,23 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-
+                    <Button
+                        text
+                    >
+                        Upload
+                    </Button>
+                    <Button
+                        primary
+                    // leftIcon={
+                    //     <FontAwesomeIcon icon={faSignIn} />
+                    // }
+                    // rightIcon={
+                    //     <FontAwesomeIcon icon={faSignIn} />
+                    // }
+                    // className={cx('custom-login')}
+                    >
+                        Log in
+                    </Button>
                 </div>
             </div>
         </header>
