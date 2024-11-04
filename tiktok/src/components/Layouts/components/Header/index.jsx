@@ -17,6 +17,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'Vietnamese',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'eng',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vie',
+                    title: 'Vietnamese',
+                },
+            ]
+        }
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -35,6 +50,16 @@ function Header() {
     // useEffect(() => {
     //     setTimeout(() => setSearchResult([1, 2, 3]), 3000)
     // }, []);
+
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                console.log('Handle for language type');
+                break;
+            default:
+                break;
+        }
+    }
 
     return (
         <header className={cx('wrapper')}>
@@ -77,7 +102,7 @@ function Header() {
                     <Button text>Upload</Button>
                     <Button primary>Log in</Button>
 
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
