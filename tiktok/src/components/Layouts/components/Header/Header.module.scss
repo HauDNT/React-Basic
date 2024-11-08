@@ -101,11 +101,33 @@
             }
         }
 
-        .more-btn {
-            font-size: 1.2rem;
-            margin-left: 28px;
-            padding: 4px 8px;
-            background-color: transparent;
+        .actions {
+            display: flex;
+            align-items: center;
+
+            .action-btn {
+                font-size: 1.3rem;
+                color: #161823;
+                background-color: transparent;
+                padding: 4px 10px;
+                cursor: pointer;
+            }
+
+            .more-btn {
+                font-size: 1.2rem;
+                margin-left: 28px;
+                padding: 4px 8px;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 999px;
+            margin-left: 12px;
             cursor: pointer;
         }
     }
